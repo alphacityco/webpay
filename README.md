@@ -67,6 +67,8 @@ Sí, aunque usted no lo crea, lo mejor que le puede pasar hasta este momento dur
 * fracaso.php
 * exito.php
 
+Crear el directorio "comun" en /var/www/html/ (debe quedar así: /var/www/html/comun/) y darle permisos 755 y asignarle el usuario:grupo www-data para que los phps puedan escribir en él. 
+
 Abrir TODOS, uno por uno, y editar/cambiar todos los valores en las variables locales para que funcionen... 
 
 # index.php
