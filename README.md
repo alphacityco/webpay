@@ -34,6 +34,27 @@ Para evitar el problema que da subir el kcc de Webpay por FTP (hay que subirlos 
                               
 Al ingresar en la URL (su ip en vez de 45.55..) http://45.55.88.47/cgi-bin/tbk_bp_pago.cgi
 
+Editar el archivo /var/www/html/cgi-bin/tbk_check_mac.cgi con los valores propios 
+
+```
+IDCOMERCIO = 597026007976
+MEDCOM = 2
+TBK_KEY_ID = 101
+PARAMVERIFCOM = 1
+URLCGICOM = http://45.55.88.47/cgi-bin/tbk_bp_resultado.cgi
+SERVERCOM = 45.55.88.47
+PORTCOM = 80
+WHITELISTCOM = ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0123456789./:=&?_
+HOST = 45.55.88.47
+WPORT = 80
+URLCGITRA = /filtroUnificado/bp_revision.cgi
+URLCGIMEDTRA = /filtroUnificado/bp_validacion.cgi
+SERVERTRA = https://certificacion.webpay.cl
+PORTTRA = 6443
+PREFIJO_CONF_TR = HTML_
+HTML_TR_NORMAL = http://45.55.88.47/xt_compra.php
+```
+
 <b>*** Debe ver el siguiente error: </b>
 
 <img src="https://raw.githubusercontent.com/clsource/guia-webpay/master/webpay-kcc/img/1/fig09.png" style="max-width:100%;">
@@ -104,15 +125,15 @@ $PATHSUBMIT
 /* * **************** FIN CONFIGURACION **************** */
 
 ```
-# Más allá del error46
+# Más allá del error 46
 
-Si todo sale bien, antes de volver al sitio con el fatífico "failure" en la url, deberán ver esta gloriosa pantalla: 
+Si todo sale bien, antes de volver al sitio con el fatídico "failure" en la url, deberán ver esta gloriosa pantalla: 
 
 <img src="http://i.imgur.com/q9TGBkT.jpg">
 
 # Pruebas adicionales
 
-Estos php utilizan la función de "exec" habitualmente deshabilitada en los hosting comunes. Algunos la activan bajo petición pero la mayoría, no... Ahora bien, como la meta es hacer funcionar estos cgis con el plugin para Woocomcer del señor Tala, (ver: <a href="http://www.cristiantala.cl/como-crear-un-ecommerce-en-chile-en-5-minutos/" target="_blank">Como crear un eCommerce en Chile en 5 minutos</a>), lo próximo será descartar que funcionen con el EXEC deshabilitado (ojalá esté hecho con Curl) para evitar problemas cuando vayamos a subir esto finalmente en un hosting. 
+Estos php utilizan la función de "exec" habitualmente deshabilitada en los hosting comunes. Algunos la activan bajo petición pero la mayoría, no... Ahora bien, como la meta es hacer funcionar estos cgis antes de trastear con el plugin para Woocomcer del señor Tala, (ver: <a href="http://www.cristiantala.cl/como-crear-un-ecommerce-en-chile-en-5-minutos/" target="_blank">Como crear un eCommerce en Chile en 5 minutos</a>), lo próximo será descartar que funcionen con el EXEC deshabilitado (ojalá esté hecho con Curl) para evitar problemas cuando vayamos a subir esto finalmente en un hosting. 
 
 Llegado a este punto, es muy útil tener en cuenta que los KCC no son la única forma de integrar Webpay, también se puede hacer vía SOAP e invirtiendo un poco, se puede fascilitar un mundo la integración usando el <a href="http://www.cristiantala.cl/producto/pack-de-5-licencias-para-el-plugin-de-webpay-webservice/" target="_blank">plugin de Webpay WebService</a> que también desarrolla el señor Tala. 
 
