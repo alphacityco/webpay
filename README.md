@@ -127,6 +127,16 @@ $PATHSUBMIT
 /* * **************** FIN CONFIGURACION **************** */
 
 ```
+# Código php para saber si EXEC() está habilitado y obtener el fullpath donde se ejecutan los programas
+```
+<?php 
+ if(exec('echo EXEC') == 'EXEC'){
+     echo 'exec est&aacute; habilitado <br><br>';
+ }
+ echo "<b>Fulpath:</b> ". getcwd() . "\n";
+?>
+```
+
 # Más allá del error 46
 
 Si todo sale bien, antes de volver al sitio con el fatídico "failure" en la url, deberán ver esta gloriosa pantalla: 
